@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="signupApp">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Sign Up</title>
+      <link rel="stylesheet" href="css/style.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js" integrity="sha512-zVjBbEjCeSbeIW2napMaT8VYXI/akKe9Yq2x2sRFiIX+onOjlFkqHVks/7IPSPLnmlHyoH8tFcL3PHdPCXC9ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   </head>
+   <body>
+      <div class="signupFrm" ng-controller="signupCtrl">
+         <form action="" class="form" name="signupForm" ng-submit="submitForm()">
+            <h1 class="title">Sign up</h1>
+            <div class="inputContainer">
+               <input type="text" class="input" placeholder="" name="username" ng-model="user.username" required ng-minlength="3" ng-maxlength="20">
+               <label for="" class="label">Username</label>
+            <div class="inputContainer">
+               <input type="email" class="input" placeholder="" name="email" ng-model="user.email" required>
+               <label for="" class="label">Email</label>
+               <i class="fa-solid fa-envelope"></i>            </div>
+            <div class="inputContainer">
+               <input type="password" class="input" placeholder="" name="password" ng-model="user.password" required ng-minlength="6">
+               <label for="" class="label">Password</label>
+            </div>
+            <div class="inputContainer">
+               <input type="password" class="input" placeholder="" name="confirmPassword" ng-model="user.confirmPassword" required compare-to="{{user.password}}">
+               <label for="" class="label">Confirm Password</label>
+            </div>
+            <input type ="submit" value = "{{Sumbit}}" ng-disabled="(signupForm.email.$invalid || signupForm.username.$invalid || signupForm.password.$invalid || signupForm.confirmPassword.$invalid) && !signupForm.$pristine">
+         </form>
+      </div>
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+      <script src = "Js/app.js"></script>
+   </body>
+</html>
